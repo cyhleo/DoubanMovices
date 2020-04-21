@@ -10,7 +10,7 @@
 1. 抛出TCPTimedOutError、TimeoutError、TunnelError。
 2. 302 跳转到其他页面。
 3. 发送状态码为200的响应”{‘msg’:’检测到有异常请求从你的IP 发出，请登录使用豆瓣。’,’r’:1}”
-4. 发送状态码为200的响应”{‘msg’:’检测到有异常请求从你的IP 发出，请登录使用豆瓣。’,’r’:1}”
+4. 发送状态码为200的响应”{"code":200,"msg":"The number of requests exceeds the limit"}”
 
 为了解决第一种情况，在settings中设置RETRY_ENABLED=True，开启下载器中间件'scrapy.downloadermiddlewares.retry.RetryMiddleware'，设置最大重试次数=7。
 
