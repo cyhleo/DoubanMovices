@@ -14,13 +14,7 @@ class MoviceDoubanSpider(scrapy.Spider):
                    '歌舞','传记','历史','战争','西部','奇幻',
                    '冒险','灾难','武侠','情色']
     def start_requests(self):
-        # for year in range(2015, 2019):
-
-        # 2019年已经抓取完
-        # 这次没有出现状态码200的{"msg":"检测到有异常请求从您的IP发出，请登录再试!","r":1}
-        # 因为把最大的重试次数大小调大，所以其他的状态码，和异常，都通过scrapy 重试中间件解决了。
-        # 15-18年的电影还得再爬一次
-
+        
         for year in range(2015, 2019):
             for genres in self.genres_list:
                     yield scrapy.Request(self.base_urls.format(0,genres,year,year), meta={'start': 0,'genres':genres,'year':year})
